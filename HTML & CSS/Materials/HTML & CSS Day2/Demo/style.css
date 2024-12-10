@@ -1,0 +1,103 @@
+/* h1{
+    color: red;
+    background-color: aqua;
+    text-align: center;
+}
+
+h1{
+    color: burlywood;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+} */
+
+
+/* Generic Selector [Universal Selector]*/
+/* *{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+/* Class Selector */
+/* .myClass{
+    color: yellow !important;
+} */
+
+/* ID Selector */
+/* #myH{
+    color: blue;
+} */
+
+/* Element Selector [Tag Selector] [type Selector] */
+/* h3{
+    color: red;
+} */
+
+
+
+/* Group Selector */
+/* h5,p{
+    color: blue; */
+    /* border-width: 10px;
+    border-color: red;
+    border-style: dotted; */
+    /* border: 10px red solid;
+    box-shadow: 5px 5px; */
+    /* border-radius: 10px; */
+    /* border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+} */
+
+
+/* h1{
+    color: red;
+}
+
+#alaa{
+    color: chartreuse;
+}
+.moaz{
+    color: mediumorchid;
+} */
+
+/* iframe{
+    width: 500px;
+    height: 300px;
+} */
+
+/*General Child Selector */
+/* div p{
+    color: red;
+} */
+
+
+/* Direct Child Selector */
+/* div>p{
+    color: red;
+} */
+
+/* Direct Sibling Selector */
+/* p+h1{
+    color: blue;
+}
+ */
+
+/* General Sibling Selector */
+ /* p~h1{
+    color: blue;
+} */
+
+/* div>p+h1{
+    color: red;
+} */
+
+
+/* Attribute Selector */
+input[type='password']{
+    color: red;
+}
+
+img[src='']{
+
+}
+
+a[href='']{
+    
+}
