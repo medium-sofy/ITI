@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page 4</title>
+</head>
+<body>
+  <form action="./login.html">
+    <table style="margin:auto;" border="10" cellpadding="8" cellspacing="6">
+      <tbody>
+        <tr>
+          <td><label for="first_name">First Name</label></td>
+          <td><input type="text" name="first_name" id="first_name"></td>
+        </tr>
+    
+        
+        <tr>
+          <td><label for="last_name">Last Name</label></td>
+          <td><input type="text" name="last_name" id="last_name"></td>
+        </tr>
+    
+        <tr>
+          <td><label for="password">Password</label></td>
+          <td><input type="password" name="password" id="password"></td>
+        </tr>
+  
+        <tr>
+          <td rowspan="2" align="center">Gender</td>  
+            <td>
+              <input type="radio" value="male" id='male'name="gender">
+              <label for="male">Male</label>
+          </td>
+        </tr>
+    
+        <tr>
+          <td>
+            <input type="radio" value="female" id='female'name="gender">
+            <label for="female">Female</label>
+          </td>
+        </tr>
+    
+        <tr>
+          <td>
+            <label for="birthday">Birthday:</label>
+          <select name="birthday" id="birthday" size ="1">
+            <optgroup>
+              <option value="Jan">January</option>
+              <option value="Feb">February</option>
+              <option value="Mar">March</option>
+            </optgroup>
+          </select>
+        </td>
+          <td><input type="date" name="birthdate" id="birthdate"></td>
+        </tr>
+    
+        <tr>
+          <td colspan="2" align="center"><h3><b><u>Interests</u></b></h3></td>
+        </tr>
+    
+        <tr>
+          <td><input type="checkbox" name="sports" id="sports"><label for="sports">Sports</label></td>
+          <td><input type="checkbox" name="music" id="music"><label for="music">Music</label></td>      </tr>
+        <tr>
+          <td><input type="checkbox" name="books" id="books"><label for="books">Books</label></td>
+          <td><input type="checkbox" name="Computer_stuff" id="Computer_stuff"><label for="Computer_stuff">Computer Stuff</label></td>
+        </tr>
+    
+        <tr>
+          <td><input type="checkbox" name="fashion" id="fashion"><label for="fashion">Fashion</label></td>
+          <td><input type="checkbox" name="movies" id="movies"><label for="movies">Movies</label></td>
+        </tr>
+        <tr>
+        <td colspan="2" align="center"> <input type="submit"></input></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</body>
+</html>
