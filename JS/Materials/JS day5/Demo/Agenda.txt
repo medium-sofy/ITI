@@ -1,0 +1,2 @@
+1-JS LifeCycle
+2-Objects ==> [BOM] ==> [navigator - ...]

@@ -1,0 +1,4 @@
+1-var scope
+2-built-in function vs user defined function
+3-Hoisting
+4-Objects

@@ -1,0 +1,3 @@
+1- Built-In Objects ==> [String - RegExp - .....]
+2- BOM [window] ==> [5 objects]
+3- JS LifeCycle

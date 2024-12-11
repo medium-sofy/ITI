@@ -1,0 +1,5 @@
+1-document
+2-cookies
+3-library
+4-user Defined Object
+5- closure
