@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./script/script.js" defer></script>
+    <script src="./script/cookieModule.js" defer></script>
+    <title>Task 1</title>
+  </head>
+  <body>
+    <div>
+      <label for="name">Enter your name:</label>
+      <input type="text" id="name" />
+    </div>
+    <div>
+      <label for="age">Enter your age:</label>
+      <input type="text" id="age" />
+    </div>
+
+    <div>
+      <label for="gender">Select your gender:</label>
+      <div id="gender">
+        <label for="male">   
+          <img src="../task-description/TasksResource/M.jpg" alt="">
+        </label>
+          <input type="radio" id="male" value="male"name="gender"/>
+        <label for="female">
+          <img src="../task-description/TasksResource/F.jpg" alt="">
+        </label>
+          <input type="radio" id="female" value="female" name="gender"/>
+        </div>
+      </div>
+    </div>
+ 
+    <div>
+      <label for="color">Select your favourite color:</label>
+      <select name="color" id="color">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+      </select>
+    </div>
+    <input type="submit" onclick="addCookies()"/>
+  </body>
+</html>
