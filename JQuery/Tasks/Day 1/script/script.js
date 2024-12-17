@@ -52,15 +52,16 @@ $("#content").on("click", "#right", () => {
 // });
 
 $("#servicesBtn").click(() => {
-  $("#content").html(
-    `<div id="services">
-        <div class='service'>Service #1</div>
-        <div class='service'>Service #2</div>
-        <div class='service'>Service #3</div>
-    </div>
-    `,
-  ).slideToggle();
+  // $("#content").html(
+  //   `<div id="services">
+  //       <div class='service'>Service #1</div>
+  //       <div class='service'>Service #2</div>
+  //       <div class='service'>Service #3</div>
+  //   </div>
+  //   `,
+  // ).slideToggle();
   
+  $('#services').slideToggle()
 
   // $('#services .service').slideToggle(500)
   // console.log($('#services .service').slideToggle(500))
