@@ -1,0 +1,11 @@
+#playbackContainer
+{
+    width:600px;
+    display: flex;
+    align-items: center;
+    gap: 28px
+}
+
+#playback{
+    width:85%;
+}

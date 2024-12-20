@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script/jQuery.js" defer></script>
+    <script src="script/script.js" defer></script>
+    <link rel="stylesheet" href="style/style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <video id="video" src="./video/Minions.mp4"></video>
+    <div id="playbackContainer">
+        <input onchange="seek(this)" type="range" min="0" step="0.1" value="0" max="36" id="playback" />
+        <span id="duration"></span>
+    </div>
+    <div id="controls" style="display: flex; align-items:center:">
+      <button onclick="play()">Play</button>
+      <button onclick="pause()">Pause</button>
+      <label for="volume">Volume:</label>
+      <input
+        onchange="volume(this)"
+        type="range"
+        id="volume"
+        max="1"
+        value="0.5"
+        step="0.1"
+      />
+      <label for="speed">Speed:</label>
+      <input
+        onchange="speed(this)"
+        type="range"
+        id="speed"
+        min="0.1"
+        max="2"
+        value="1"
+        step="0.1"
+      />
+      <button onclick="mute()" id="mute">Mute</button>
+
+      <button onclick="start()" id="start"><<</button>
+      <button onclick="backwards()" id="backwards"><</button>
+      <button onclick="forward()" id="forward">></button>
+      <button onclick="end()" id="end">>></button>
+    </div>
+  </body>
+</html>

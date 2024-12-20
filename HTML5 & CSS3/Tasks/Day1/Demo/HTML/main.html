@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../Styles/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    
+    <!-- <meter min="0" max="100" low="30" high="80" optimum="90" value="50">hamada</meter><br>
+
+    <progress max="10" value="1">kuaskdabd</progress><br>
+
+    <input id="r1" min="0" max="100" value="2" step="2" type="range"><br>
+
+    <button onclick="startRange()">Start</button><br> -->
+
+<!-- 
+    <mark>Hello</mark>
+    <p>console.log(i)</p>
+    <code>console.log(<var>i</var>)</code>
+    
+    <p>var i = 0;</p>
+    <p> var <var>i</var> = 0;</p> -->
+
+
+    <!-- <input type="text"><br>
+
+    <input type="number"><br>
+    <select>
+        <option>Cairo</option>
+        <option>Giza</option>
+        <option>Alex</option>
+        <option>Fayoum</option>
+    </select> -->
+<!-- Lists [ol - ul - dl - datalist] -->
+
+<!-- <dl>
+    <dt>HTML</dt>
+    <dd>Hyper Text Markup Language</dd>
+</dl> -->
+
+    <!-- DataList -->
+     <!-- 1) input list-->
+      <!-- <input type="text" list="l1"> -->
+     <!-- 2) datalist id-->
+      <!-- <datalist id="l1">
+        <option label="Mid Egypt">Cairo</option>
+        <option label="Mid Egypt">Giza</option>
+        <option label="Upper Egypt">Alex</option>
+        <option label="Upper Egypt">Fayoum</option>
+      </datalist> -->
+
+
+      <!-- <form>
+        <label>
+            Name
+            <input placeholder="Ahmed" type="text" pattern="[a-zA-Z]{3,}" autocomplete="on">
+        </label>
+        <button>Submit</button>
+      </form> -->
+      <!-- <section>
+        <h1>Body 2</h1> -->
+        <!-- <p data-myAttr="a">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum magnam sapiente sequi placeat fugit magni, illo perferendis ipsum nemo saepe. Recusandae, doloremque? Temporibus, hic. Reprehenderit sequi eveniet tenetur natus?</p>
+        <p data-myAttr="b">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum magnam sapiente sequi placeat fugit magni, illo perferendis ipsum nemo saepe. Recusandae, doloremque? Temporibus, hic. Reprehenderit sequi eveniet tenetur natus?</p> -->
+    <!-- </section> -->
+
+      <!-- <header>
+            <nav>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+            </nav>
+      </header>
+
+      <main>
+        <section>
+            <h1>Body 1</h1>
+        </section>
+      </main>
+
+      <footer>
+        <p>this is Footer</p>
+      </footer> -->
+
+
+
+      <!-- <video autoplay muted src="../Videos/Minions.mp4" poster="../Images/Poster.jpg" width="450" height="300" controls></video> -->
+      <video id="v1" src="../Videos/Minions.mp4" width="450" height="300"></video>
+      <button onclick="playVid()">Play</button>
+      <button onclick="pauseVid()">Pause</button>
+      <button onclick="muteUnmute()">Mute/UnMute</button>
+      <input id="rateRange" onchange="rateVideo(this,event)" min="0.1" type="range" max="16" value="1" step="0.1">
+      <input id="volumeRange" onchange="volumeVideo(this)" type="range" max="1" value="0.5" step="0.1">
+
+    <script src="../Scripts/script.js"></script>
+</body>
+</html>
