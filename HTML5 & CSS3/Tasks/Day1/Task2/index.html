@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script/jQuery.js" defer></script>
+    <script src="script/script.js" defer></script>
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="slider-container">
+      <label for="red">Red</label>
+      <input onchange="changeRed(this)" type="range" id="red" value="0" min="0" step="1" max="255" />
+    </div>
+    <div class="slider-container">
+      <label for="green">Green</label>
+      <input onchange="changeGreen(this)" type="range" id="green" value="0" min="0" step="1" max="255" />
+    </div>
+    <div class="slider-container">
+      <label for="blue">blue</label>
+      <input onchange="changeBlue(this)" type="range" id="blue" value="0" min="0" step="1" max="255" />
+    </div>
+    <h1 id="header">Change the 3 color values above and observe my color change</h1>
+  </body>
+</html>
