@@ -1,0 +1,4 @@
+1- Geolocation
+2- LocalStorage
+3- Math
+4- Canvas
