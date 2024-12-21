@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script/jQuery.js" defer></script>
+    <script src="script/script.js" defer></script>
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <form action="html/dashboard.html"> -->
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required pattern="[A-Za-z]{4,20}" />
+      </div>
+
+      <div>
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" required id="phone" />
+      </div>
+
+      <div>
+        <label for="ticket">Ticket No.:</label>
+        <input type="number" name="ticket" required id="ticket" />
+      </div>
+
+      <div>
+        <label for="train">Train No.:</label>
+        <input type="number" name="train" required id="train" />
+      </div>
+
+      <div>
+        <label for="seat">Seat No.:</label>
+        <input type="number" name="seat" required id="seat" />
+      </div>
+
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" name="date" required id="date" />
+      </div>
+
+      <input type="submit" id="submit" onclick="saveInfo()" />
+    <!-- </form> -->
+  </body>
+</html>
