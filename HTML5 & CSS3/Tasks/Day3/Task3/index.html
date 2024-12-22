@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script/jQuery.min.js" defer></script>
+    <script src="script/script.js" defer></script>
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+      <form action="">
+          <input type="text" class="input" id="username" placeholder="Username" required pattern="[A-Za-z]{4,10}" >
+          <p class="usernameError">The required username may only be a series of alphabetical characters</p>
+          <input type="email" class="input" id="email" placeholder="E-mail" required pattern="[a-zA-Z0-9\.]+@(yahoo|hotmail|gmail)\.com">
+          <p class="emailError">The required Email address may not contain any special characters other than the "@" sign</p>
+          <input type="submit" value="Change">
+      </form>
+  </body>
+</html>
