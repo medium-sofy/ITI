@@ -1,0 +1,132 @@
+/* #canv1{
+    border: 1px solid gray;
+    width: 300px;
+    height: 300px;
+} */
+
+/* 
+#d1{
+    border: 1px solid black;
+    height: 150px;
+    width: 300px;
+    overflow-y: scroll;
+} */
+
+/* img{
+    width: 150px;
+    position: absolute;
+} */
+
+/* #s{ */
+    /*First Image at HTML*/
+    /* z-index: 0; */
+/* } */
+
+/* #g{ */
+    /*Second Image at HTML*/
+    /* border: 1px solid black;
+    border-radius: 10px;
+    height: 220px;
+    left: 50px;
+    top: 50px; */
+    /* z-index: -1; */
+/* } */
+
+/* #hhh{
+    position: sticky;
+    top: 0px;
+    bottom: 20px;
+} */
+
+
+/* #hh1{
+    float: left;
+}
+
+#hh2{
+    float: right;
+}
+
+#pp{
+    clear: both;
+} */
+
+
+/*Pesudo*/
+/* #pid::first-letter{
+    font-size: 24pt;
+    color: red;
+    margin-left: 20px;
+}
+
+#pid::first-line{
+    color: blue;
+}
+ */
+
+/* ul li:first-child{ */
+/* ul li:last-child{ */
+/* ul li:nth-child(3){ */
+/* ul li:nth-child(odd){ */
+/* ul li:nth-child(even){
+    color: red;
+} */
+
+/* #hhhhh:hover{
+    background-color: yellow;
+    color: red; */
+    /* transition: 10s; */
+    /* transition: background-color 10s, color 1s; */
+/* } */
+
+
+/* #name:invalid{
+    border: 2px solid red;
+}
+
+#name:valid{
+    border: 2px solid green;
+} */
+
+/* Animation */
+
+@keyframes myAnimation1 {
+    from{
+        left: 20px;
+        background-color: green;
+    }
+    to{
+        left: 400px;
+        background-color: red;
+    }
+}
+
+@keyframes myAnimation2 {
+    0%{
+        left: 20px;
+        background-color: green;
+    }
+    50%{
+        left: 200px;
+        background-color: red;
+    }
+    100%{
+        left: 400px;
+        background-color: yellow;
+    }
+}
+
+#ball{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    position: absolute;
+    background-color: black;
+    border-radius: 100px;
+    /* animation-name: myAnimation1; */
+    animation-name: myAnimation2;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
