@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <style>
+      <!-- Element width -- > .col-1 {
+        width: 8.33%;
+      }
+      .col-2 {
+        width: 16.66%;
+      }
+      .col-3 {
+        width: 24.999%;
+      }
+      .col-4 {
+        width: 33.332%;
+      }
+      .col-5 {
+        width: 41.665%;
+      }
+      .col-6 {
+        width: 49.998%;
+      }
+      .col-7 {
+        width: 58.331%;
+      }
+      .col-8 {
+        width: 66.664%;
+      }
+      .col-9 {
+        width: 74.997%;
+      }
+      .col-10 {
+        width: 83.33%;
+      }
+      .col-11 {
+        width: 91.663%;
+      }
+      .col-12 {
+        width: 100%;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      
+      .justify-text{
+          text-align: justify;
+      }
+      html {
+        /* height: 100vh; Effect?????*/
+        /* display: flex;
+        flex-direction: column;
+        align-items: center; ==> moved to body selector after adding page-wrapper section */
+      }
+      body {
+        /* height: 94%; Effect??????*/
+        /* width: 930px; Moved to page-wrapper to enable full screen-width footer*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .page-wrapper{
+          width:930px;
+      }
+
+      /* Font */
+      @font-face {
+        font-family: "hanken-bold";
+        src: url("./style/assets/fonts/HankenGrotesk-VariableFont_wght.ttf")
+          format("truetype");
+        font-weight: bold;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "hanken-regular";
+        src: url("./style/assets/fonts/HankenGrotesk-VariableFont_wght.ttf");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "geist-mono";
+        src: url("./style/assets/fonts/GeistMonoVF.woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      .hanken-bold {
+        font-family: "hanken-bold", sans-serif;
+      }
+      .hanken-regular {
+        font-family: "hanken-regular", sans-serif;
+      }
+
+      #site-header {
+        padding: 24px 0px;
+        font-size: 28px;
+      }
+      /* Display copyright on the same row as the header */
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p {
+          font-family: geist-mono;
+        }
+      }
+      /* contains navigation buttons */
+      .nav-list {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        margin-bottom: 48px;
+        .nav-list-item {
+          border: 2px solid black;
+          width: 120px;
+          padding: 12px;
+          text-align: center;
+          font-family: "geist-mono";
+          box-shadow: 4px 4px;
+          transition: 0.2s;
+          cursor: pointer;
+        }
+        .nav-list-item:hover {
+          box-shadow: 0px 0px;
+        }
+      }
+
+      /* contains main image and catch phrase */
+      .hero-section {
+        border: 4px solid black;
+        width: 100%;
+        height: 280px;
+        margin-bottom: 38px;
+        .hero-section-left {
+          padding: 24px;
+        }
+        /* "Do you love flowers as much as we do?" */
+        .hero-section-header {
+          font-size: 28px;
+          margin-bottom: 8px;
+          font-family: hanken-bold;
+        }
+
+        .hero-section-paragraph {
+          font-family: geist-mono, sans-serif;
+        }
+
+        .hero-section-right {
+          background-image: url(style/assets/images/b&w.jpg);
+          background-size: cover;
+        }
+      }
+
+      aside {
+        padding-left: 96px;
+        padding-top: 6px;
+      }
+
+      .aside-title {
+        font-size: 18px;
+        font-family: hanken-bold;
+        margin-bottom: 8px;
+      }
+
+      .aside-list {
+        margin: 0px 0px 8px 22px;
+        li {
+          font-family: hanken-regular;
+        }
+      }
+
+      .post-title {
+        font-size: 28px;
+        margin-bottom: 24px;
+        font-family: hanken-bold;
+      }
+      .post-info {
+        color: #6e6e6e;
+        font-family: geist-mono;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 24px;
+      }
+      .post-content {
+        text-align: justify;
+        margin-bottom: 24px;
+        font-family: geist-mono;
+      }
+      .flowers-figure {
+        width: 300px;
+        margin-bottom: 24px;
+      }
+      hr {
+        border: 1px solid #90db35;
+        margin: 24px 0px;
+        /* margin: 48px 0px; */
+      }
+
+      .comment-section-header {
+        font-size: 28px;
+        margin-bottom: 24px;
+        font-family: hanken-bold;
+      }
+
+      .comment-section {
+        .comment-section-card {
+          padding: 24px;
+          background-color:;
+          border: 3px solid black;
+        }
+
+        div:nth-child(3) {
+          /* background-color: #b7b8b6; */
+          background-color: #c0d4b8;
+        }
+
+        /* removes adjacent on first and second cards borders to avoid having extra thick borders in the middle */
+        div:not(:last-child) {
+          border-bottom: none;
+        }
+        .comment-username {
+          font-family: hanken-bold;
+          text-decoration: underline;
+        }
+        .comment-info {
+          font-family: geist-mono;
+          color: #6e6e6e;
+          font-size: 14px;
+        }
+        .comment-body {
+          font-family: geist-mono;
+        }
+      }
+
+      /* Post a comment section */
+      .post-comment-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h4 {
+          align-self: start;
+        }
+        .input-container {
+          display: flex;
+          align-items: baseline;
+          margin-bottom: 18px;
+
+          label {
+            width: 100px;
+            text-align: right;
+            padding-right: 22px;
+            font-family: hanken-regular;
+          }
+          input,
+          textarea {
+            width: 300px;
+          }
+        }
+        input[type="submit"] {
+          border: 2px solid black;
+          width: 60px;
+          padding: 6px 12px;
+          margin-left: 100px;
+          margin-bottom: 24px;
+          text-align: center;
+          font-family: "geist-mono";
+          box-shadow: 3px 3px;
+          transition: 0.2s;
+          cursor: pointer;
+        }
+        input[type="submit"]:hover {
+          box-shadow: 0px 0px;
+        }
+      }
+
+      footer {
+        width: 100%;
+        /* width: 100vw; why does vw cause horizontal scrolling? */
+        height: 350px;
+        background-color: #fe5f55;
+        /* color:white; */
+        display:flex;
+        justify-content:center;
+        border: 1px solid red;
+        .footer-content{
+            width:930px;
+            padding-top: 48px;
+
+            .footer-title{
+                font-size: 18px;
+                font-family: hanken-bold;
+                margin-bottom: 8px;
+            }
+            
+            .footer-list{
+                margin: 0px 0px 8px 22px;
+                li {
+                  font-family: hanken-regular;
+                }
+            }
+            
+            #blogroll{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h4{
+                    margin-left: 8px;
+                    width: 50%;
+                }
+            }
+        }
+      }
+
+    </style>
+    <title>RWD</title>
+  </head>
+  <body>
+    <section class="page-wrapper">
+      <div class="row header-container">
+        <h1 class="hanken-bold" id="site-header">The Flower Blog</h1>
+        <p class="geist-mono">Copyright &COPY; mediumsofy</p>
+      </div>
+
+      <header>
+        <nav>
+          <ul class="nav-list">
+            <li class="nav-list-item">Blog</li>
+            <li class="nav-list-item">About</li>
+            <li class="nav-list-item">Archives</li>
+            <li class="nav-list-item">Contact</li>
+            <li class="nav-list-item">RSS</li>
+          </ul>
+        </nav>
+      </header>
+      <section class="hero-section row">
+        <div class="col-4 hero-section-left">
+          <h2 class="hero-section-header">
+            Do you love flowers as much as we do?
+          </h2>
+          <p class="hero-section-paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore .
+          </p>
+        </div>
+        <div class="col-8 hero-section-right"></div>
+      </section>
+      <main class="row">
+        <article class="main-content col-8">
+          <h3 class="post-title">This is the title of a blog post</h3>
+          <p class="post-info">
+            Posted on June 29th 2009 by <u>Mads Kjaer</u> - <u>3 Comments</u>
+          </p>
+          <p class="post-content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+            euismod tellus eu orci imperdiet nec rutrum lacus blandit. Cras enim
+            nibh, sodales ultricies elementum vel, fermentum id tellus. Proin
+            metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur
+            in odio augue. Morbi congue auctor interdum. Phasellus sit amet
+            metus justo. Phasellus vitae tellus orci, at elementum ipsum. In in
+            quam eget diam adipiscing condimentum. Maecenas gravida diam vitae
+            nisi convallis vulputate quis sit amet nibh. Nullam ut velit tortor.
+            Curabitur ut elit id nisl volutpat consectetur ac ac lorem. Quisque
+            non elit et elit lacinia lobortis nec a velit. Sed ac nisl sed enim
+            consequat porttitor.
+          </p>
+
+          <img
+            class="flowers-figure"
+            src="./style/assets/images/b&w flowers.png"
+            alt=""
+          />
+          <p class="post-content">These are beautiful flowers.</p>
+          <p class="post-content">
+            Pellentesque ut sapien arcu, egestas mollis massa. Fusce lectus leo,
+            fringilla at aliquet sit amet, volutpat non erat. Aenean molestie
+            nibh vitae turpis venenatis vel accumsan nunc tincidunt. Suspendisse
+            id purus vel felis auctor mattis non ac erat. Pellentesque sodales
+            venenatis condimentum. Aliquam sit amet nibh nisi, ut pulvinar est.
+            Sed ullamcorper nisi vel tortor volutpat eleifend. Vestibulum
+            iaculis ullamcorper diam consectetur sagittis. Quisque vitae mauris
+            ut elit semper condimentum varius nec nisl. Nulla tempus porttitor
+            dolor ac eleifend. Proin vitae purus lectus, a hendrerit ipsum.
+            Aliquam mattis lacinia risus in blandit.
+          </p>
+          <p class="post-content">
+            Vivamus vitae nulla dolor. Suspendisse eu lacinia justo. Vestibulum
+            a felis ante, non aliquam leo. Aliquam eleifend, est viverra semper
+            luctus, metus purus commodo elit, a elementum nisi lectus vel magna.
+            Praesent faucibus leo sit amet arcu vehicula sed facilisis eros
+            aliquet. Etiam sodales, enim sit amet mollis vestibulum, ipsum
+            sapien accumsan lectus, eget ultricies arcu velit ut diam. Aenean
+            fermentum luctus nulla, eu malesuada urna consequat in. Pellentesque
+            habitant morbi tristique senectus et netus et malesuada fames ac
+            turpis egestas. Pellentesque massa lacus, sodales id facilisis ac,
+            lobortis sed arcu. Donec hendrerit fringilla ligula, ac rutrum nulla
+            bibendum id. Cras sapien ligula, tincidunt eget euismod nec,
+            ultricies eu augue. Nulla vitae velit sollicitudin magna mattis
+            eleifend. Nam enim justo, vulputate vitae pretium ac, rutrum at
+            turpis. Aenean id magna neque. Sed rhoncus aliquet viverra.
+          </p>
+
+          <hr />
+
+          <section class="comment-section">
+            <h4 class="comment-section-header">Comments</h4>
+            <div class="row comment-section-card">
+              <div class="col-6">
+                <p class="comment-username">George Washington</p>
+                <p class="comment-info">on June 29th 2009 at 23:35</p>
+              </div>
+              <div class="col-6 comment-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut.
+              </div>
+            </div>
+            <div class="row comment-section-card">
+              <div class="col-6">
+                <p class="comment-username">Benjamin Franklin</p>
+                <p class="comment-info">on June 29th 2009 at 23:40</p>
+              </div>
+              <div class="col-6 comment-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut.
+              </div>
+            </div>
+            <div class="row comment-section-card">
+              <div class="col-6">
+                <p class="comment-username">Barack Obama</p>
+                <p class="comment-info">on June 29th 2009 at 23:59</p>
+              </div>
+              <div class="col-6 comment-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut.
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section class="post-comment-section">
+            <h4 class="comment-section-header">Post a Comment</h4>
+            <form class="col-8">
+              <div class="input-container">
+                <label for="name">Name</label>
+                <input type="text" id="name" />
+              </div>
+
+              <div class="input-container">
+                <label for="email">Email</label>
+                <input type="text" id="email" />
+              </div>
+              <div class="input-container">
+                <label for="website">Website</label>
+                <input type="text" id="website class=" />
+              </div>
+
+              <div class="input-container">
+                <label for="comment">Comment</label>
+                <textarea name="comment" id="comment"></textarea>
+              </div>
+              <input type="submit" value="Post" />
+            </form>
+          </section>
+        </article>
+
+        <aside class="side-nav col-4">
+          <h4 class="aside-title">Categories</h4>
+          <ul class="aside-list">
+            <li>Lorem ipsum dolor</li>
+            <li>Sit amet consectetur</li>
+            <li>Adipisicing elit sed</li>
+            <li>Do eiusmod tempor</li>
+            <li>Incididunt ut labore</li>
+          </ul>
+
+          <h4 class="aside-title">Archives</h4>
+          <ul class="aside-list">
+            <li>December 2008</li>
+            <li>January 2009</li>
+            <li>February 2009</li>
+            <li>March 2009</li>
+            <li>April 2009</li>
+            <li>May 2009</li>
+            <li>June 2009</li>
+          </ul>
+        </aside>
+      </main>
+    </section>
+
+    <footer>
+      <section class="footer-content row">
+          <div class="col-4">
+              <h4 class="footer-title">About</h4>
+              <p class="justify-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="col-4" id="blogroll">
+              <h4 class="footer-title">Blogroll</h4>
+              <p>
+                  <ul class="footer-list">
+                      <li>NETTUTS+</li>
+                      <li>FreelanceSwitch</li>
+                      <li>In The Woods</li>
+                      <li>Netsetter</li>
+                      <li>PSDTUTS+</li>
+                  </ul>
+              </p>
+          </div>
+          <div class="col-4">
+              <h4 class="footer-title ">Popular</h4>
+              <ul class="footer-list">
+                  <li>This is the title of a blog post</li>
+                  <li>Lorem ipsum dolor sit amet</li>
+                  <li>Consectetur adipisicing elit, sed do eiusmod</li>
+                  <li>Duis aute irure dolor</li>
+                  <li>Excepteur sint occaecat cupidatat</li>
+                  <li>Reprehenderit in voluptate velit</li>
+                  <li>Officia deserunt mollit anim id est laborum</li>
+                  <li>Lorem ipsum dolor sit amet</li>
+              </ul>
+          </div>
+      </section>
+    </footer>
+  </body>
+</html>
