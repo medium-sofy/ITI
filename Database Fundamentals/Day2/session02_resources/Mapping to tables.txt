@@ -1,0 +1,109 @@
+-- Mapping ERD to TABLES
+Emps[#ssn, name, salary, image, DOB, Street, Zone, dept_no(FK), supervisor_ssn(FK), contract_id, contract_start_date, contract_type ]
+	101  Aly  	6000    ,, , , 20   , 102  ]
+	102  Mostafa    8000   , , , , , 30 ,	   ]
+	103  Marwa	9000  ,,,, ,,  , 20 ,  102 ]
+	104  Maha	1000  ,,,, ,,  , 10 ,  102 ]
+	105  Mai	9000  ,,,, ,,  , 10 , 104  ]
+	106  Hesham	9000  ,,,, ,,  , 10 ,  101 ]
+Emps_Emails[#ssn(FK), #Email]
+		101	aly@gmail.com
+		101	aly@msn.com
+		102	Mostafa@gmail.com
+
+Emps_Phones [#ssn(FK), #phone ]    -- both columns donot repeat  ( both columns will be PK = Composite Primary Key)
+				   -- ssn is a foreign key عامود ربط reference to ssn pk in Emps table
+				   -- Assume Many employees may have same phone
+	 101  01016549879
+	 101  01249879875
+	 102  01146879879
+	 110  01049879879
+         103  01154987998
+Depts [#d_no, d_name, loc, ssn_mgr(FK+U), start_date ]
+	10	IT	  cairo        106   12-5-2022  
+	20	Sales	  alex	       101   31-12-2024
+	30 	Admins    Mansoura     102   11-3-2024
+
+Projects [#p_no, p_name]
+	1001	 Delta			{Marwa, Maha, Aly}
+	1002	 Suez		        {Marwa, Mostafa, Aly}
+	1003	 Assuit			{Mai, Mostafa, Hesham, Aly}
+
+Emps_Projects[#ssn(fk), #p_no(fk), no_hours]
+	 	103	 1001	  24
+		103	 1002     60
+		104	 1001     30
+		101	 1001     10
+		101	 1002     20
+		101	 1003     50
+		102	 1002     30
+		102	 1003     10
+		105	 1003     30
+		106	 1003     10  
+		
+
+
+Skills [#s_id, s_name ]
+
+Emps_Skills_Projects[#ssn(fk), #p_no(fk), #s_id(fk)]
+		     103	1001	 ??
+		      ??        1002      1
+		     102	 ???	  2
+
+Dependent[#ssn(fk), #Name, Relation]
+	   101	    Menna	Wife
+	   101	    Shaza	daughter	
+	   102	    Shaza	daughter
+
+
+Car [#plate_no, model, color, ssn(fk+U)]
+
+
+
+Contacts نمسحه
+في حالة العلاقة 
+one to one
+Must Must
+يعنى مفيش جدول عدد صفوفه اقل 
+بنعمل ايه؟
+Merge 2 Tables into 1 table
+
+
+
+
+
+
+
+
+
+# Rules #
+1- Composite Primary Key
+	- Many To Many relationship [emps_projects, emps_skills_projects]
+	- Multi Values Attribute [multi phones]
+	- Weak Entity Set [dependent]
+
+
+2- Ternary relationship M-M-M
+	- can be solved to 3 binary M-M relations
+	- Participation Must - Must - Must
+
+3- Merge 2 tables
+	- one to one
+	- Must Must
+
+4- Unary Relationship
+	- May May
+
+5- how to know the weak entity set ?
+	a. no primary key
+	b. this entity will be deleted if the strong entity deleted
+
+
+6- foreign Keys Mapping in relations
+	a. One To Many
+		put the FK in Many table
+	b. One to One
+		- put the FK in the table with Less rows, must be unique
+	c. Many to Many
+		- Create new table in between with 2 Fks and the 2 FKs will be composite PK.
+
