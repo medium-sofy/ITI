@@ -1,0 +1,139 @@
+-- show all columns from employees table
+
+
+-- show all columns from employees table
+
+
+-- show custom columns from employees table [ employee_id | first_name | last_name | salary | hire_date | department_id ]
+
+
+-- Concat  ,    Alias 
+-- show employee_id | concat first name with last name and put alias Emp Name | salary | hire_date | department_id
+
+
+
+-- Arithematic operations  +  -   *   / 
+-- show employee_id | last_name | salary | annual_salary | salary + 100 * 12 with alias bonus_annual
+
+
+
+-- Order by
+-- order employees by department_id asc and salary desc
+
+
+
+
+-- -------------------- Where conditions ----------------
+-- Comparison operators  >   <   >=    <=   =    !=
+-- example : show all employees work in dept id = 30
+
+
+
+-- example : show employee data whose employee id = 105
+
+
+
+-- example : show employees data have salary <= 3000
+
+
+
+-- Multi Conditions -- 	AND   OR 
+-- example : show employees data works in dept 30, salary <= 10000
+
+
+
+
+-- example : show employees data works in dept 30, 60
+		--  salary <= 5000
+
+
+
+-- ----- Where operators ---- in, Between, Like, is Null -----
+-- 1. in operator
+-- example : show employees work in dept 30, 60, 90
+
+
+-- 2. between
+-- example : show employees have salary in range 3000 : 7000 included
+
+
+
+
+-- 3- is null 
+-- example : show employees whose have no department
+
+
+
+
+
+-- 4- Like 		%  Zero or More Letters			_ exactly 1 Letter
+-- example : show employees data whose last name = King
+
+
+-- example : show employees data whose last name start with K
+
+
+-- example : show employees data whose last name end with r
+
+
+-- example : show employees data whose last name contains n
+
+
+-- example : show employees data with last name : letter before last is n
+
+
+
+
+
+-- --------------------------------------------------------------
+-- DMLs [insert, update, delete] >> Transaction Control [ Commit - Rollback ]
+-- 1. insert 
+-- example : insert new dept [280, Data Science, 109, 1400 ]
+-- --			insert new employee [ 207, your data, hire date = 24-4-2022,
+-- 						comm = null | job id = it prog	| dept id = 280 ]
+set autocommit = 0;
+-- 1. insert new dept
+
+-- 2. test 
+select * from departments;
+
+-- 3. Confirm save
+commit;
+
+
+-- 1. insert new emp
+
+-- 2. test 
+select * from employees;
+
+-- 3. Confirm save
+commit;
+
+-- ======================================================
+
+-- 2- Update 
+-- example : employee data no 207
+-- --			 comm = 0.5, phone = null,	salary + 2000
+-- --		     email = Yahia.Momtaz.207@gmail.com
+
+-- 1. update exist emp
+
+-- 2. test
+select * from employees;
+
+-- 3. confirm 
+commit;
+
+
+
+-- ======================================================
+
+
+-- 3. delete 
+-- example : delete department no 280
+
+-- 1. delete commands
+
+-- 2. test 
+
+-- 3. confirm 

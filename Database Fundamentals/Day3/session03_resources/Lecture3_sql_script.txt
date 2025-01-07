@@ -1,0 +1,223 @@
+-- show all columns from employees table
+select *
+from employees;
+
+-- show all columns from departments table
+select *
+from departments;
+
+-- show custom columns from employees table [ employee_id | first_name | last_name | salary | hire_date | department_id ]
+select employee_id, first_name, last_name, salary, hire_date, department_id
+from employees;
+
+-- Concat  ,    Alias 
+-- show employee_id | concat first name with last name and put alias Emp Name | salary | hire_date | department_id
+select employee_id, concat(first_name,' ', last_name, ' takes salary = ', salary) as 'Emp Report',
+		hire_date, department_id as dept_id
+from employees;
+
+
+-- Arithematic operations  +  -   *   / 		(		)
+-- show employee_id | last_name | salary | annual_salary | salary + 100 * 12 with alias bonus_annual
+select employee_id, last_name, salary, salary * 12 as annual_salary,
+		( salary + 100 ) * 12 / 5 as bonus_annual
+from employees;
+
+
+-- Order by
+-- order employees by department_id asc and salary desc
+select *
+from employees
+order by department_id asc, salary desc;
+
+
+
+
+
+
+-- -------------------- Where conditions ----------------
+-- Comparison operators  >   <   >=    <=   =    !=
+-- example : show all employees work in dept id = 30
+select *
+from employees
+where department_id = 30;
+
+
+-- example : show employee data whose employee id = 105
+select *
+from employees
+where employee_id = 105;
+
+
+-- example : show employees data have salary <= 3000
+select *
+from employees
+where salary <= 3000
+order by salary desc;
+
+
+-- Multi Conditions -- 	AND   OR 
+-- example : show employees data works in dept 30, salary <= 10000
+select *
+from employees
+where department_id = 30
+and salary <= 10000;
+
+-- example : show employees data works in dept 30, 60
+		--  salary <= 5000
+select *
+from employees
+where (department_id = 30
+or department_id = 60)
+and salary <= 5000;
+
+
+-- ----- Where operators ---- in, Between, Like, is Null -----
+-- 1. in operator
+-- example : show employees work in dept 30, 60, 90
+select *
+from employees
+where department_id = 30
+or department_id = 60
+or department_id = 90;
+
+select * from employees
+where department_id in (30, 60, 90);
+
+
+-- 2. between keyord
+-- example : show employees have salary in range 3000 : 7000 not icluded
+select *
+from employees
+where salary >= 3000 
+and salary <= 7000;
+
+select * 
+from employees
+where salary between 3000 and 7000;
+
+-- 3- is null keyword
+-- example : show employees whose have no department
+select *
+from employees
+where department_id is null;
+
+
+
+-- 4- Like 		%  Zero or More Letters			_ exactly 1 Letter
+-- example : show employees data whose last name = King
+select *
+from employees
+where last_name = 'King';
+
+-- example : show employees data whose last name start with K
+select *
+from employees
+where last_name Like 'K%';
+
+
+-- example : show employees data whose last name end with r
+select *
+from employees
+where last_name Like '%r';
+
+
+
+-- example : show employees data whose last name contains n
+select *
+from employees
+where last_name Like '%n%';
+
+-- example : show employees data with last name : letter before last is n
+select *
+from employees
+where last_name Like '%n_';
+
+
+
+
+-- --------------------------------------------------------------
+-- DMLs [insert, update, delete] >> Transaction Control [ Commit - Rollback ]
+set autocommit = 0;
+-- 1. insert 
+-- example : insert new dept [280, Data Science, 109, 1400 ]
+
+-- 1. insert new dept
+insert into departments
+	(department_id, department_name, manager_id, location_id)
+values
+	(280, 'Data Science', 109, 1400);
+
+-- 2. test 
+select * from departments;
+
+-- 3. Confirm save
+commit;
+
+-- --			insert new employee [ 207, your data, hire date = 24-4-2022,
+-- 						comm = null | job id = it prog	| dept id = 280 ]
+
+-- 1. insert new emp
+insert into employees
+	(employee_id, first_name, last_name, email, phone_number, hire_date, 
+    job_id, salary, commission_pct, manager_id, department_id)
+values
+	(207, 'Yahia', 'Momtaz', 'yahia@gmail.com', '01274077377',  str_to_date('24-4-2022', '%d-%m-%Y'), 
+    'IT_PROG', 8000, null, 103, 280);
+
+-- 	(207, 'Yahia', 'Momtaz', 'yahia@gmail.com', '01274077377', '2022-04-24', 
+--     'IT_PROG', 8000, null, 103, 280);
+
+-- current_date()
+-- 2. test 
+select * from employees;
+
+-- 3. Confirm save
+commit;
+
+-- ======================================================
+
+-- 2- Update 
+-- example : employee data no 207
+-- --			 comm = 0.5, phone = null,	salary + 2000
+-- --		     email = Yahia.Momtaz.207@gmail.com
+
+-- 1. update exist emp
+update employees
+set commission_pct = 0.5,
+	phone_number = null,
+    salary = salary + 2000,
+    email = concat(first_name, '.', last_name, '.', employee_id, '@gmail.com')
+where employee_id = 207;
+
+-- 2. test
+select * from employees;
+
+-- 3. confirm 
+commit;
+
+
+-- ======================================================
+
+-- 3. delete 
+-- example : delete department no 280
+-- 1. delete commands
+
+delete from employees
+where department_id = 280;
+
+delete from departments
+where department_id = 280;
+
+-- 2. test 
+select * from departments;
+select * from employees;
+
+-- 3. confirm 
+-- commit;
+rollback;
+
+
+
+
+
