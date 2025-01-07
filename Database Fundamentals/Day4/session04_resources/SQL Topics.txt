@@ -1,0 +1,70 @@
+1- choose dbms ... [ mysql db ], [Postgres db] = Open Source : No Licence
+2- mysql workbench ( tool to connect to the db mysql to write sql code )
+	php myadmin
+3- learn language [ sql ] لغة قواعد بيانات
+> SQL ( Structure Query Language )لغة الاستعلامات                : Build DB Infra -Structure  - Standard Language
+	 	> all dbms { Postgresql db | Oracle | Ms. SQL Server | IBM DB2 | My SQL db | Access ... 
+	1 - SELECT [ retreive data ]
+	2 - DMLS ( INSERT - UPDATE - DELETE ) "data manipulation language" : require ( commit or rollback )
+	3 - TRANSACTION CONTROL ( COMMIT - ROLLBACK )
+
+-- out of scope 		
+	4- DDLs ( data definition language )  = create - alter - drop - truncate - rename - comment [ auto commit ]
+	5- DCLs : data ctrl language ( grant - revoke ) [ auto commit ]
+
+-->>>
+	Windows Functions ... 
+
+=================================================================================================================================
+
+** Retrieving Data :  [ Select ]
+	- SELECT all columns
+	- SELECT CUSTOM columns
+	- Arithematic expressions
+	- Column Aliases
+	- Concatenation
+
+--------------------------
+** Retrieving Data :  [ Select ]
+	- Restricting Rows using Where clause
+	- Comparison Operators  >    <    >=    <=   =   !=  <>
+
+	- Comparison Operators :  Between   IN   Like   Is null			NOT
+	- Using Multi Conditions :  AND  OR  
+	- Using Order By
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-----------------------------------------------------
+** Data Manipulations DMLs ** ; transaction control Commit / rollback
+	insert
+	update
+	delete
+
+------------------------
+# Select [ retrieve data ]
+s
+** SQL Functions : - Aggregate Functions
+	- Sum
+	- Max
+	- Min
+	- Count
+	- Avg
+	- Group By
+	- Having
+
+
+-----------------------------------------------------
+** Join Tables ** Retrieve data from more than 1 table
+
+-----------------------------------------------------
+** Sub Queries **
+
+-----------------------------------------------------
+** union [ set operators ]
+
+
+-----------------------------------------------------
+** Other Schema Objects ** 
+	- db views
+	- index
+

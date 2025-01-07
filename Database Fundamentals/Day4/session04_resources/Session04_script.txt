@@ -1,0 +1,208 @@
+-- SQL Functions : Aggregate Functions
+-- sum, max, min, avg, count 
+-- example : Find Sum of salaries, Max Salary, Min Salary, Count of All Employees in the company
+select sum(salary), max(salary), min(salary), count(*)
+from employees;
+
+-- example : Find Sum of salaries, Max Salary, Min Salary, Count of Employees in the company
+-- working in dept 30
+select sum(salary), max(salary), min(salary), count(*)    -- 3
+from employees		-- 1
+where department_id = 30;	-- 2
+
+-- ERRor example: ## Find Sum of salaries, Max Salary, Min Salary, Count of Employees 
+-- in the company, Last name 
+/*select sum(salary), max(salary), min(salary), count(*), last_name
+from employees;
+*/
+
+-- # Group by : to categorize data  |  Having to filter aggregated functions
+-- example : show aggregated functions; sum of salaries per each department 
+--  exclude employees with null dept,
+-- exclude departments with count(*) = 1
+select department_id, sum(salary), count(*)	-- 5
+from employees		-- 1
+where department_id is not null	-- 2
+group by department_id	-- 3
+Having count(*) > 1	-- 4
+order by department_id asc;		-- 6
+
+-- example : show aggregated functions per each department and per each job
+-- Nested group by [ Drilling ]
+select department_id, job_id, count(*), max(Salary)
+from employees 
+where department_id is not null
+group by department_id, job_id
+order by department_id asc;
+
+-- example : find the average salary with nullable salary
+-- avg ()
+select avg( coalesce( salary, 0) ),		sum(salary)/count(*)
+from employees;
+
+select employee_id, last_name, salary, commission_pct,
+		salary + coalesce(commission_pct, 0)
+from employees;
+
+-- ##  Join Between Tables --
+/*
+ 1- inner join  [ 1st syntax | 2nd syntax ]
+ 2- outer join
+ 3- self join [ recursive ] [unary relationship]
+*/
+-- 1. inner join [ 1st syntax ]
+-- example (2 tables): show employees data ... , beside department_name
+select employee_id, last_name, salary, employees.department_id, department_name
+from employees, departments
+where employees.department_id = departments.department_id;  -- Join Condition  
+
+-- show employees data, jobs data
+select employee_id, last_name, salary, employees.job_id, job_title
+from employees, jobs
+where employees.job_id = jobs.job_id;		-- Join Condition
+
+
+-- example (3 tables): show employees data , beside department_name, beside city [locations ]
+select employee_id, last_name, salary,
+	   employees.department_id, department_name,
+	   departments.location_id, city, street_address
+from employees, departments, locations
+where employees.department_id = departments.department_id	-- 1st join condition
+and departments.location_id = locations.location_id
+and salary > 3000
+order by employee_id asc;
+
+
+-- 2nd syntax 
+-- example (2 tables): show employees data ... , beside department_name
+select employee_id, last_name, salary, employees.department_id, department_name
+from employees inner join departments
+On employees.department_id = departments.department_id	-- join condition
+where salary > 7000;
+
+-- example (3 tables): show employees data , beside department_name, beside city
+select employee_id, last_name, salary, employees.department_id, department_name,
+	departments.location_id, city
+from employees inner join departments
+On employees.department_id = departments.department_id	-- join condition
+	inner join locations
+On departments.location_id = locations.location_id	-- join condition
+where salary > 7000;    
+
+
+
+
+
+
+
+
+-- ## 2. Outer Join Type ## --
+-- show employees data beside dept name [ and show also employees with no dept  ]
+select employee_id, last_name, salary, employees.department_id,
+		department_name, departments.location_id, city
+from employees Left outer Join Departments	-- Left, Right
+On employees.department_id = departments.department_id
+Left outer join Locations
+On departments.location_id = locations.location_id;
+
+
+-- Cross Join [ bad join ]
+/*
+select employee_id, last_name, salary, employees.department_id,
+		department_name
+from employees, departments;
+*/
+
+
+-- ## 3. Self Join [ Recursive ] | Unary Relationship 
+-- ex : Categories | Sub Categories | Sub Categories .. in E commerce websites
+-- ex : شجرة الحسابات  GL
+-- example : show employees data [ last_name, salary ]
+--         beside his supervisor [ last_name, salary ]
+
+select emps.first_name as emp_name, emps.salary as emp_salary, 
+	   mgrs.first_name as mgr_name, mgrs.salary as mgr_salary
+from employees emps inner join employees mgrs
+On Emps.Manager_id = Mgrs.Employee_id; 
+-- Emps		Mgrs
+/*    1>		 1
+	M(FK)		<1
+Emps.Manager_id = Mgrs.Employee_id
+*/
+-- self join with outer join 
+select emps.first_name as emp_name, emps.salary as emp_salary, 
+	   mgrs.first_name as mgr_name, mgrs.salary as mgr_salary
+from employees emps Left outer join employees mgrs
+On Emps.Manager_id = Mgrs.Employee_id; 
+
+
+-- ###### Subquery #######
+-- 1] Single Row Subquery   =     >     <    >=     <=    != 
+-- Query inside another Query 
+-- example : show all employees data works in dept ( the same dept for emp no 115 )
+-- --	( donot show employee no. 115 )
+select *
+from employees
+where department_id = (select department_id from employees where employee_id = 115)
+and employee_id != 115;
+
+-- example : show all employees data works in dept 
+-- ( the same dept for emp with first name = Alexander , last name Khoo )
+select *
+from employees
+where department_id = (select department_id from employees 
+						where first_name = 'Alexander' and last_name = 'Khoo');
+                                
+-- example : Show Employees who have the Max Salary 
+select *
+from employees
+where salary = (select max(salary) from employees);
+
+-- example : Show Employees who work in dept (The department with name = IT)
+select *
+from employees
+where department_id = (select department_id from departments where department_name = 'IT');
+
+
+-- 2] Multi Row Sub Query      in     		  Any    All 
+-- example : show departments data which have employees
+select *
+from departments
+where department_id in (select department_id from employees);
+
+   
+-- example : show employees who have salary > ALL [>max] salaries of employees in dept 30
+select *
+from employees 
+where salary >ALL (select salary from employees where department_id = 30);
+
+
+-- example : show employees who have salary > ANY [>min] salaries of employees in dept 30
+select *
+from employees 
+where salary >ANY (select salary from employees where department_id = 30);
+
+
+
+-- ##################################################################
+-- ## Union 
+-- example : union 2 queries results
+select employee_id, last_name, salary, department_id
+from employees
+where department_id = 20
+union
+select employee_id, last_name, salary, department_id
+from employees
+where department_id = 60
+union
+select employee_id, last_name, salary, department_id
+from employees
+where department_id = 90
+order by employee_id asc;
+
+select employee_id, last_name, salary, department_id
+from employees
+where department_id in ( 20, 60);
+
+
+
