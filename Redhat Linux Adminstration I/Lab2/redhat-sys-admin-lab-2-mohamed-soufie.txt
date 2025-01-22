@@ -1,0 +1,122 @@
+11.Remove dir11 in one-step. What did you notice? And how did you overcome that?
+A- The directory failed to be deleted because it's not empty.
+To delete un-empty directories we have to use the "rm -r <directory-name>" command.
+
+12.Copy the /etc/passwd file to your home directory making its name is mypasswd.
+cp /etc/passwd ~/mypasswd
+
+13.Rename this new file (which at your home) to be oldpasswd
+mv ~/mypasswd ~/oldpasswd
+
+14.Write the command which display the man page of the passwd file”/etc/passwd”.
+
+man passwd
+
+15.Write the command which display a list of all the commands that contain the keyword “passwd” in their man/manual page.
+
+man -k passwd
+
+16.You are in /usr/bin, list four ways to go to your home directory
+1-cd ~/
+
+2-cd -/
+
+3-
+cd .. (/usr)
+cd .. (/)
+cd /home/<my-user-name>
+
+4- cd /home/<my-user-name>
+
+17.The output of the command pwd was /home/<your_user_name>. Write the absolute and relative path for the file /etc/passwd
+
+absolute: /etc/passwd
+relative: ../../etc/passwd
+
+18.Show the total directory size of /home/<your_user_name>.
+df -h ~
+or 
+df -h /home/<my-user-name>
+
+19.List all files at your /etc which end with .config
+ls /etc/*.config
+
+20.Create a folder called /tmp/myconfig and copy to it all .config files from etc to it
+mkdir /tmp/myconfig
+cp /etc/*.config /tmp/myconfig/
+
+21.Remove the directory /tmp/myconfig
+rm -r /tmp/myconfig/
+
+22.Display lines 1 to line 5 of /etc/passwd file
+more -5 /etc/passwd
+
+23.Using vi write your CV in the file /tmp/mycv. Your CV should include your name, age, school,
+college, experience,...
+
+24.Open /tmp/mycv file using vi command then: Without using arrows state how to:
+a. Move the cursor down one line at time.
+<j>
+b. Move the cursor up one line at time.
+<k>
+c. Search for word age
+</age>
+d. Step to line 5 (assuming that you are in line 1 and file is more than 5 lines).
+<5G>
+e. Delete the line you are on
+<dd>
+f. Delete line number 5.
+<:5d>
+g. How to step to the end of line and change to writing mode in one-step.
+<A>
+
+25.Create a user account with the following attribute
+● username: islam
+● Fullname/comment: Islam Askar
+sudo useradd  -c "Islam Askar" -md /home/islam-askar islam
+● Password: islam
+sudo passwd islam
+<islam> Enter
+<islam> Enter
+
+26.Create a user account with the following attribute
+● Username: baduser
+● Full name/comment: Bad User
+sudo useradd -c "Bad User" baduser
+● Password: baduser
+sudo passwd baduser
+<baduser> Enter
+<baduser> Enter
+
+27.Create a group called pgroup with group ID of 30000
+sudo groupadd -g 30000 pgroup
+
+28.Create a group called badgroup
+sudo groupadd badgroup
+
+29.Add islam user to the pgroup group as a supplementary group
+sudo usermod -aG pgroup islam
+
+30.Log out and log in by another user
+su - islam
+<islam> Enter
+
+31.Modify the password of islam's account to password
+sudo passwd islam
+<password> Enter
+<password> Enter
+
+32.Modify islam's account so the password expires after 30 days
+sudo chage -M 30 islam
+
+33.Lock bad user account so he can't log in
+sudo chage -E 2025-01-12 baduser
+or
+sudo passwd -l baduser
+
+34.Delete bad user account
+(used -r to delete his home dir as well.)
+sudo userdel -r baduser
+
+35.Delete the group called badgroup.
+sudo groupdel badgroup
